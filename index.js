@@ -1,34 +1,27 @@
 /**
- * @typedef {{startYear: Number, grade: Number}} Course
- * @typedef {{name: String, age: Number, learnEnglish: Course}} Student
- *
- * @param {Student[]} students
+ * @param {{firstName: String, lastName: String, age: Number}[]} users
  */
- function getSumGrades(students) {
-   let total = 0;
-   for(let i = 0; i < students.length; i++) {
-     total += students[i].learnEnglish.grade;
-   }
-   return total;
- }
+ function getFullNames(users) {
+	let fullNames = [];
+  for(let i = 0; i < users.length; i++) {
+    fullNames.push(`${users[i].firstName} ${users[i].lastName}`);
+  }
+  return fullNames;
+}
+
 
 // Sample usage - do not modify
-let students = [
+let users = [
   {
-    name: "Sam Doe",
-    age: 24,
-    learnEnglish: {
-      startYear: 2020,
-      grade: 18
-    }
+    firstName: "Sam",
+    lastName: "Blue",
+    age: 21,
   },
   {
-    name: "Charlie Bron",
-    age: 31,
-    learnEnglish: {
-      startYear: 2021,
-      grade: 19
-    }
+    firstName: "Charlie",
+    lastName: "Bon",
+    age: 38,
   }
 ];
-console.log(getSumGrades(students)); // 37
+console.log(getFullNames(users)); // [Sam Blue, Charlie Bon]
+
